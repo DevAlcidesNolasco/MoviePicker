@@ -1,0 +1,42 @@
+<ion-app>
+  <ion-split-pane contentId="app">
+    <ion-menu contentId="app">
+      <ion-content>
+        <ion-card color="primary">
+          <ion-card-content>
+            <ion-title class="app-title">MoviePicker</ion-title>
+          </ion-card-content>
+        </ion-card>
+        <ion-list>
+          <ion-menu-toggle autoHide="false">
+            <ion-item routerLink="home" class="nav-link ion-no-border" routerLinkActive="active-link">
+              <ion-icon slot="start" name="home"></ion-icon>
+              <ion-label>Home</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+
+          <ion-menu-toggle autoHide="false">
+            <ion-item routerLink="movies" class="nav-link ion-no-border" routerLinkActive="active-link">
+              <ion-icon slot="start" name="videocam"></ion-icon>
+              <ion-label>Movies</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+          <ion-menu-toggle autoHide="false">
+            <ion-item routerLink="series" class="nav-link ion-no-border" routerLinkActive="active-link">
+              <ion-icon slot="start" name="albums"></ion-icon>
+              <ion-label>Series</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+
+
+        </ion-list>
+      </ion-content>
+      <ion-footer class="ion-no-border">
+        <ion-toolbar>
+          <ion-title>Alvaro Nolasco</ion-title>
+        </ion-toolbar>
+      </ion-footer>
+    </ion-menu>
+    <ion-router-outlet id="app"> </ion-router-outlet>
+  </ion-split-pane>
+</ion-app>

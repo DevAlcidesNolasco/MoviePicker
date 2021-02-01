@@ -1,0 +1,17 @@
+.active-link {
+    --background: var(--ion-color-primary);
+}
+.nav-link {
+    --border-radius: 8px;
+    --color-hover: var(--ion-color-medium);
+    margin: 5px 10px !important;
+}
+
+ion-list{
+    margin: 0 10px !important;
+    border-radius: 8px;
+}
+
+.app-title{
+    --color: var(--ion-color-dark);
+}
