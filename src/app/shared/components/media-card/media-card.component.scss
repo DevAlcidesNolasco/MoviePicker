@@ -1,0 +1,60 @@
+ion-item.date-item {
+    --background: transparent;
+    --color: var(--ion-color-dark);
+}
+
+ion-card.movie:hover ion-img.poster {
+    webkit-filter: blur(4px);
+    filter: blur(4px);
+}
+ion-card.movie ion-card.rating {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    margin: 0px;
+    width: 100%;
+    padding: 0px;
+    --background: rgba(var(--ion-color-light-rgb), 0.5);
+    ion-item.rating {
+        --background: transparent;
+    }
+}
+
+ion-card.movie ion-card.details {
+    display: none;
+    position: absolute !important;
+    width: 80% !important;
+    max-height: 80% !important;
+    overflow-y: auto;
+
+    ion-img {
+        position: sticky !important;
+        top: 0px;
+        z-index: 999999999;
+    }
+
+    &::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: var(--ion-color-primary);
+        border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background: var(--ion-color-primary-shade);
+    }
+}
+
+ion-card.movie:hover ion-card.details {
+    display: block;
+    z-index: 99999999;
+    left: 50%;
+    top: 50%;
+    transform: translateY(-52%) translateX(-54%) !important;
+}

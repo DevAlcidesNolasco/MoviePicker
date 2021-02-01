@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { ThemoviedbService } from 'src/app/services/themoviedb/themoviedb.service';
 
 @Component({
   selector: 'app-series',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SeriesPage implements OnInit {
 
-  constructor() { }
+  public series: Observable<any>;
+
+  constructor(
+    public theMovieDbService: ThemoviedbService
+  ) { }
 
   ngOnInit() {
+    this.series = this.theMovieDbService.getPopularSeries();
+    this.series.subscribe((series) => { console.log(series.results[0]) });
   }
 
 }

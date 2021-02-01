@@ -1,0 +1,39 @@
+<ion-card color="light" class="movie">
+  <ion-card class="details">
+    <ion-img [src]="'https://image.tmdb.org/t/p/w500' + media.backdrop_path"></ion-img>
+    <ion-card-header>
+      <ion-card-subtitle>{{ media.release_date || media.first_air_date | date:"dd MMMM, y":"es-SV" }}
+      </ion-card-subtitle>
+      <ion-card-title color="dark">{{ media.original_title || media.original_name }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>{{ media.overview }}</p>
+      <ion-button expand='block'>
+        <ion-icon slot="start" name="eye"></ion-icon>
+        Detalles
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+  <ion-card class="rating">
+    <ion-card-header>
+      <ion-item class="rating ion-no-border">
+        <ion-icon *ngFor="let star of numberToArray(media.vote_average)" color="warning" name="star"></ion-icon>
+        <ion-icon *ngFor="let star of residualToArray(media.vote_average)" color="warning" name="star-half"></ion-icon>
+        <ion-icon *ngFor="let star of numberToArray(10 - media.vote_average)" color="warning" name="star-outline">
+        </ion-icon>
+      </ion-item>
+    </ion-card-header>
+  </ion-card>
+  <ion-img class="poster" [src]="'https://image.tmdb.org/t/p/w400' + media.poster_path"></ion-img>
+  <ion-card-header>
+    <ion-card-title>{{ media.title || media.name }}</ion-card-title>
+  </ion-card-header>
+  <!--<ion-card-content>
+    <ion-item class="rating">
+      <ion-icon *ngFor="let star of numberToArray(media.vote_average)" color="warning" name="star"></ion-icon>
+      <ion-icon *ngFor="let star of residualToArray(media.vote_average)" color="warning" name="star-half"></ion-icon>
+      <ion-icon *ngFor="let star of numberToArray(10 - media.vote_average)" color="warning" name="star-outline">
+      </ion-icon>
+    </ion-item>
+  </ion-card-content>-->
+</ion-card>

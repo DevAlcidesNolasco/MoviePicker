@@ -7,14 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { SeriesPageRoutingModule } from './series-routing.module';
 
 import { SeriesPage } from './series.page';
+import { SharedModuleModule } from 'src/app/shared/shared-module/shared-module.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    SeriesPageRoutingModule
+    SeriesPageRoutingModule,
+    SharedModuleModule
   ],
   declarations: [SeriesPage]
 })
-export class SeriesPageModule {}
+export class SeriesPageModule { }

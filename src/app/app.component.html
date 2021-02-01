@@ -8,32 +8,20 @@
           </ion-card-content>
         </ion-card>
         <ion-list>
-          <ion-menu-toggle autoHide="false">
-            <ion-item routerLink="home" class="nav-link ion-no-border" routerLinkActive="active-link">
-              <ion-icon slot="start" name="home"></ion-icon>
-              <ion-label>Home</ion-label>
+          <ion-menu-toggle autoHide="false" *ngFor="let route of routes">
+            <ion-item [routerLink]="route.route" class="nav-link ion-no-border" routerLinkActive="active-link">
+              <ion-icon slot="start" [name]="route.icon"></ion-icon>
+              <ion-label>{{ route.name }}</ion-label>
             </ion-item>
           </ion-menu-toggle>
-
-          <ion-menu-toggle autoHide="false">
-            <ion-item routerLink="movies" class="nav-link ion-no-border" routerLinkActive="active-link">
-              <ion-icon slot="start" name="videocam"></ion-icon>
-              <ion-label>Movies</ion-label>
-            </ion-item>
-          </ion-menu-toggle>
-          <ion-menu-toggle autoHide="false">
-            <ion-item routerLink="series" class="nav-link ion-no-border" routerLinkActive="active-link">
-              <ion-icon slot="start" name="albums"></ion-icon>
-              <ion-label>Series</ion-label>
-            </ion-item>
-          </ion-menu-toggle>
-
-
         </ion-list>
       </ion-content>
       <ion-footer class="ion-no-border">
         <ion-toolbar>
-          <ion-title>Alvaro Nolasco</ion-title>
+          <ion-item>
+            <ion-note slot="start">Desarrollado por</ion-note>
+            <ion-title>Alvaro Nolasco</ion-title>
+          </ion-item>
         </ion-toolbar>
       </ion-footer>
     </ion-menu>
