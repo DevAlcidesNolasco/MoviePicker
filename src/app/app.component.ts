@@ -25,6 +25,11 @@ export class AppComponent {
       route: "series",
       name:"Series",
       icon: "albums"
+    },
+    {
+      route: "actors",
+      name: "Actors",
+      icon: "person"
     }
   ];
 
