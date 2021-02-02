@@ -17,7 +17,6 @@ export class SeriesPage implements OnInit {
 
   ngOnInit() {
     this.series = this.theMovieDbService.getPopularSeries();
-    this.series.subscribe((series) => { console.log(series.results[0]) });
   }
 
 }

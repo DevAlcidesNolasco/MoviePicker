@@ -20,7 +20,11 @@ export class ThemoviedbService {
     return this.httpClient.get(`${this.apiRoute}/movie/popular?api_key=${this.apiKey}&language=${this.language}&page=${page}`);
   }
 
-  public getPopularSeries = (page: number = 1) => {
+  public getPopularSeries = (page: number = 1): Observable<any> => {
     return this.httpClient.get(`${this.apiRoute}/tv/popular?api_key=${this.apiKey}&language=${this.language}&page=${page}`);
+  }
+
+  public getDetails = (type: string, id: number): Observable<any> => {
+    return this.httpClient.get(`${this.apiRoute}/${type}/${id}?api_key=${this.apiKey}&language=${this.language}`);
   }
 }

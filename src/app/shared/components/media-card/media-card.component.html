@@ -8,7 +8,7 @@
     </ion-card-header>
     <ion-card-content>
       <p>{{ media.overview }}</p>
-      <ion-button expand='block'>
+      <ion-button expand='block' (click)="details(media.id)">
         <ion-icon slot="start" name="eye"></ion-icon>
         Detalles
       </ion-button>
@@ -28,12 +28,4 @@
   <ion-card-header>
     <ion-card-title>{{ media.title || media.name }}</ion-card-title>
   </ion-card-header>
-  <!--<ion-card-content>
-    <ion-item class="rating">
-      <ion-icon *ngFor="let star of numberToArray(media.vote_average)" color="warning" name="star"></ion-icon>
-      <ion-icon *ngFor="let star of residualToArray(media.vote_average)" color="warning" name="star-half"></ion-icon>
-      <ion-icon *ngFor="let star of numberToArray(10 - media.vote_average)" color="warning" name="star-outline">
-      </ion-icon>
-    </ion-item>
-  </ion-card-content>-->
 </ion-card>

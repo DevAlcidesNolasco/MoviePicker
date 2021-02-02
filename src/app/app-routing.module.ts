@@ -18,6 +18,10 @@ const routes: Routes = [
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
+  },
+  {
+    path: 'details-media',
+    loadChildren: () => import('./shared/pages/details-media/details-media.module').then( m => m.DetailsMediaPageModule)
   }
 ];
 

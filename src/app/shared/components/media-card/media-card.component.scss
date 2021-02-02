@@ -58,3 +58,14 @@ ion-card.movie:hover ion-card.details {
     top: 50%;
     transform: translateY(-52%) translateX(-54%) !important;
 }
+
+.detail-modal {
+    .modal-wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+}

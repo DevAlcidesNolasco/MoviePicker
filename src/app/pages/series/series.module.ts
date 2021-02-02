@@ -8,6 +8,7 @@ import { SeriesPageRoutingModule } from './series-routing.module';
 
 import { SeriesPage } from './series.page';
 import { SharedModuleModule } from 'src/app/shared/shared-module/shared-module.module';
+import { DetailsMediaPageModule } from 'src/app/shared/pages/details-media/details-media.module';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { SharedModuleModule } from 'src/app/shared/shared-module/shared-module.m
     FormsModule,
     IonicModule,
     SeriesPageRoutingModule,
-    SharedModuleModule
+    SharedModuleModule,
+    DetailsMediaPageModule
   ],
   declarations: [SeriesPage]
 })

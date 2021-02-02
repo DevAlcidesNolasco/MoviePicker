@@ -17,13 +17,6 @@ export class MoviesPage implements OnInit {
 
   ngOnInit() {
     this.movies = this.theMovieDbService.getPopularMovies();
-    this.theMovieDbService.getPopularMovies().subscribe((movies) => {
-      console.log(movies.results[0]);
-    });
   }
-
-  public numberToArray = (i: number) => new Array(Math.floor(i));
-
-  public residualToArray = (i: number) => new Array(Math.ceil(i % 1));
-
+  
 }

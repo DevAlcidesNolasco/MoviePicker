@@ -22,7 +22,7 @@
     </ion-row>
     <ion-row>
       <ion-col size="12" size-md="4" *ngFor="let serie of (series | async)?.results ">
-        <app-media-card [media]='serie'></app-media-card>
+        <app-media-card [media]='serie' type='tv'></app-media-card>
       </ion-col>
     </ion-row>
   </ion-grid>

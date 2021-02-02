@@ -8,6 +8,7 @@ import { MoviesPageRoutingModule } from './movies-routing.module';
 
 import { MoviesPage } from './movies.page';
 import { SharedModuleModule } from 'src/app/shared/shared-module/shared-module.module';
+import { DetailsMediaPageModule } from 'src/app/shared/pages/details-media/details-media.module';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { SharedModuleModule } from 'src/app/shared/shared-module/shared-module.m
     FormsModule,
     IonicModule,
     MoviesPageRoutingModule,
-    SharedModuleModule
+    SharedModuleModule,
+    DetailsMediaPageModule
   ],
   declarations: [
     MoviesPage

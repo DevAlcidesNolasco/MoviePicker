@@ -1,0 +1,25 @@
+ion-card.card-image {
+    -webkit-box-shadow: -2px 4px 14px -4px rgba(var(--ion-color-medium-rgb), 0.75);
+    -moz-box-shadow: -2px 4px 14px -4px rgba(var(--ion-color-medium-rgb), 0.75);
+    box-shadow: -2px 4px 14px -4px rgba(var(--ion-color-medium-rgb), 0.75);
+}
+
+ion-card.card-overview {
+    height: 95%;
+}
+
+ion-content {
+    --padding-bottom: 40px;
+}
+
+ion-list {
+    background: transparent;
+}
+
+ion-item-divider, ion-item {
+    --background: transparent;
+}
+
+ion-card { 
+    border-radius: 8px;
+}
