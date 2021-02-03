@@ -24,3 +24,10 @@ ion-item {
 ion-card {
     border-radius: 8px;
 }
+
+ion-card.company-card{
+    --border-radius: 5px;
+    -webkit-box-shadow: 0px 0px 20px -9px rgba(var(--ion-color-primary-rgb), 0.75);
+    -moz-box-shadow: 0px 0px 20px -9px rgba(var(--ion-color-primary-rgb), 0.75);
+    box-shadow: 0px 0px 20px -9px rgba(var(--ion-color-primary-rgb), 0.75);
+}

@@ -26,29 +26,12 @@
             <p>
               {{ (mediaDetail | async)?.overview }}
             </p>
-            <ion-list>
-              <ion-item-divider>
-                <ion-label>Categorias</ion-label>
-                <ion-badge slot="end">{{ (mediaDetail | async)?.genres.length }}</ion-badge>
-              </ion-item-divider>
-              <ion-item *ngFor="let genre of (mediaDetail | async)?.genres">
-                <ion-label>{{ genre.name }}</ion-label>
-              </ion-item>
-            </ion-list>
           </ion-card-content>
         </ion-card>
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col size="12">
-        <ion-card>
-          <ion-card-header>
-            <ion-card-subtitle>{{ (mediaDetail | async)?.vote_count }} votantes</ion-card-subtitle>
-            <ion-card-title>{{ (mediaDetail | async)?.vote_average }}</ion-card-title>
-          </ion-card-header>
-        </ion-card>
-      </ion-col>
-      <ion-col size="12">
+      <ion-col size="12" size-md="12">
         <ion-card>
           <ion-card-header>
             <ion-card-subtitle>{{ (mediaDetail | async)?.status }}</ion-card-subtitle>
@@ -56,6 +39,62 @@
               async)?.release_date || (mediaDetail | async)?.last_air_date | date:"dd MMMM, y" }}</ion-card-title>
           </ion-card-header>
         </ion-card>
+      </ion-col>
+      <ion-col size="12" size-md="5">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-subtitle>{{ (mediaDetail | async)?.vote_count }} votantes</ion-card-subtitle>
+            <ion-card-title>Rating {{ (mediaDetail | async)?.vote_average }}</ion-card-title>
+            <ion-progress-bar [color]="(mediaDetail | async)?.vote_average > 5 ? ((mediaDetail | async)?.vote_average > 7 ? 'success' : 'warning') : 'danger'" [value]="(mediaDetail | async)?.vote_average / 10"></ion-progress-bar>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" size-md="7">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Géneros</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-item class="ion-no-border" *ngFor="let genre of (mediaDetail | async)?.genres">
+              <ion-title>{{ genre.name }}</ion-title>
+            </ion-item>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" size-md="8">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Productoras</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-grid>
+              <ion-row>
+                <ion-col *ngFor="let company of (mediaDetail | async)?.production_companies" size="12" size-md="6">
+                  <ion-card class="company-card">
+                    <img *ngIf="company.logo_path" [src]="'https://image.tmdb.org/t/p/w200' + company.logo_path" />
+                    <ion-card-content>
+                      <p>{{ company.name }}</p>
+                    </ion-card-content>
+                  </ion-card>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" size-md="4" *ngIf="(mediaDetail | async) as mediaDetail">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-subtitle>Sitio Web</ion-card-subtitle>
+            <ion-card-title>{{ getPageName(mediaDetail.homepage) }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-button [href]="mediaDetail.homepage" target="__blank" expand="block">
+              Visitar Ahora
+            </ion-button>
+          </ion-card-content>
+        </ion-card>
+
       </ion-col>
     </ion-row>
 

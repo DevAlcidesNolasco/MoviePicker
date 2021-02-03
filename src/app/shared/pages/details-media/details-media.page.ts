@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { AlertController, ModalController } from '@ionic/angular';
 import { Observable } from 'rxjs';
 import { ThemoviedbService } from 'src/app/services/themoviedb/themoviedb.service';
 
@@ -17,7 +17,8 @@ export class DetailsMediaPage implements OnInit {
 
   constructor(
     public theMovieDbService: ThemoviedbService,
-    public modalController: ModalController
+    public modalController: ModalController,
+    public alertController: AlertController
   ) { }
 
   ngOnInit() {
@@ -29,6 +30,33 @@ export class DetailsMediaPage implements OnInit {
 
   public hideModal = () => {
     this.modalController.dismiss();
+  }
+
+  /*public goToHomePage = (link: string) => {
+    console.log(link);
+    this.mediaDetail.subscribe(async (media) => {
+      if (media && media.homepage) {
+        window.open(media.homepage, "__blank");
+      } else {
+        const alert = await this.alertController.create({
+          header: 'Error!',
+          subHeader: 'No se tiene informacion.',
+          message: 'La acción que intenta realizar no se puede debido a falta de informacion o no permitido.',
+          buttons: ['OK']
+        });
+        await alert.present();
+      }
+
+    })
+  }*/
+
+  public getPageName = (link: string): string => {
+    /*console.log({
+      "split": link.split("/"),
+      "trimmed": link.split("/")[2],
+      "link": link
+    });*/
+    return link.split("/")[2];
   }
 
 }
