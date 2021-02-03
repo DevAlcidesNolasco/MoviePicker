@@ -16,6 +16,22 @@ export class ThemoviedbService {
     private httpClient: HttpClient
   ) { }
 
+  public getPopular = (type: string, page: number = 1): Observable<any> => {
+    return this.httpClient.get(`${this.apiRoute}/${type}/popular?api_key=${this.apiKey}&language=${this.language}&page=${page}`);
+  }
+
+  public getSearch = (type: string, query: string, page: number = 1): Observable<any> => {
+    return this.httpClient.get(`${this.apiRoute}/search/${type}?api_key=${this.apiKey}&language=${this.language}&query=${query}&page=${page}&include_adult=false`);
+  }
+
+  public getDetails = (type: string, id: number): Observable<any> => {
+    return this.httpClient.get(`${this.apiRoute}/${type}/${id}?api_key=${this.apiKey}&language=${this.language}`);
+  }
+
+
+
+
+
   public getPopularMovies = (page: number = 1): Observable<any> => {
     return this.httpClient.get(`${this.apiRoute}/movie/popular?api_key=${this.apiKey}&language=${this.language}&page=${page}`);
   }
@@ -24,7 +40,5 @@ export class ThemoviedbService {
     return this.httpClient.get(`${this.apiRoute}/tv/popular?api_key=${this.apiKey}&language=${this.language}&page=${page}`);
   }
 
-  public getDetails = (type: string, id: number): Observable<any> => {
-    return this.httpClient.get(`${this.apiRoute}/${type}/${id}?api_key=${this.apiKey}&language=${this.language}`);
-  }
+
 }

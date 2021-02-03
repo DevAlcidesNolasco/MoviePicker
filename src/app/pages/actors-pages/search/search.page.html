@@ -1,0 +1,87 @@
+<ion-content>
+  <h1 class="ion-text-center">Buscar</h1>
+  <ion-card>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Nombre del Actor</ion-label>
+        <ion-input debounce='800' (ionChange)="search($event.detail.value)" type="text"
+          [placeholder]="'Ej. ' + selectedActor" clearInput>
+        </ion-input>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-grid fixed>
+    <ion-row *ngIf="!(results | async)">
+      <ion-col size="12" size-md="4">
+        <ion-card>
+          <ion-skeleton-text animated style="width: 100%; height: 200px;"></ion-skeleton-text>
+          <ion-card-header>
+            <ion-skeleton-text animated style="width: 40%"></ion-skeleton-text>
+            <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>
+            <ion-progress-bar color='medium' type="indeterminate"></ion-progress-bar>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" size-md="4">
+        <ion-card>
+          <ion-skeleton-text animated style="width: 100%; height: 200px;"></ion-skeleton-text>
+          <ion-card-header>
+            <ion-skeleton-text animated style="width: 40%"></ion-skeleton-text>
+            <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>
+            <ion-progress-bar color='medium' type="indeterminate"></ion-progress-bar>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" size-md="4">
+        <ion-card>
+          <ion-skeleton-text animated style="width: 100%; height: 200px;"></ion-skeleton-text>
+          <ion-card-header>
+            <ion-skeleton-text animated style="width: 40%"></ion-skeleton-text>
+            <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>
+            <ion-progress-bar color='medium' type="indeterminate"></ion-progress-bar>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ng-template ngFor let-person [ngForOf]="(results|async)?.results">
+      <app-person [id]="person.id"></app-person>
+      <h4>Apariciones</h4>
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col *ngFor="let media of person.known_for" size="12" size-md="4">
+            <ion-card>
+              <ion-img [src]="'https://image.tmdb.org/t/p/w300' + media.poster_path"></ion-img>
+              <ion-card-header>
+                <ion-card-subtitle>{{ media.media_type }}</ion-card-subtitle>
+                <ion-card-title>{{ media.title || media.name }}</ion-card-title>
+                <ion-progress-bar [color]="(media.vote_average > 5) ? ((media.vote_average > 8) ? 'success' : 'warning') : 'danger'" [value]="media.vote_average / 10"></ion-progress-bar>
+                <ion-item class="ion-no-border">
+                  <ion-icon slot="start" color="warning" name="star"></ion-icon>
+                  <ion-title>{{ media.vote_average }}</ion-title>
+                </ion-item>
+              </ion-card-header>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ng-template>
+
+
+
+    <!--<ion-row>
+      {{ (results|async)?.results | json }}
+      <ion-col size="12" size-md="4" *ngFor="let media of (results | async)?.results[0].known_for">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-subtitle>{{ media.media_type }}</ion-card-subtitle>
+            <ion-card-title>Awesome Title</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            Awesome content
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>-->
+  </ion-grid>
+</ion-content>

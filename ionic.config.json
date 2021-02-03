@@ -1,5 +1,7 @@
 {
   "name": "MoviePicker",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }

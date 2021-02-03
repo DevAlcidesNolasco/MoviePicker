@@ -1,0 +1,33 @@
+GET https://api.themoviedb.org/3/configuration/languages?api_key=cbd664e9c8bc0f3e9eeb7a0e27fd7583 HTTP/1.1
+
+###
+
+GET https://api.themoviedb.org/3/configuration?api_key=cbd664e9c8bc0f3e9eeb7a0e27fd7583 HTTP/1.1
+
+###
+
+GET https://api.themoviedb.org/3/configuration/countries?api_key=cbd664e9c8bc0f3e9eeb7a0e27fd7583 HTTP/1.1
+
+
+###
+GET https://api.themoviedb.org/3/configuration/primary_translations?api_key=cbd664e9c8bc0f3e9eeb7a0e27fd7583 HTTP/1.1
+
+###
+
+GET https://api.themoviedb.org/3/movie/popular?api_key=cbd664e9c8bc0f3e9eeb7a0e27fd7583&language=es-ES&page=1 HTTP/1.1
+
+
+###
+
+GET https://api.themoviedb.org/3/movie/775996?api_key=cbd664e9c8bc0f3e9eeb7a0e27fd7583&language=es-SV HTTP/1.1
+
+
+###
+GET https://api.themoviedb.org/3/search/movie?api_key=cbd664e9c8bc0f3e9eeb7a0e27fd7583&language=es-SV&query=will%20smith&page=1&include_adult=false HTTP/1.1
+
+
+###
+GET https://api.themoviedb.org/3/search/person?api_key=cbd664e9c8bc0f3e9eeb7a0e27fd7583&language=es-SV&query=will%20smith&page=1&include_adult=false HTTP/1.1
+
+###
+GET https://api.themoviedb.org/3/person/2888?api_key=cbd664e9c8bc0f3e9eeb7a0e27fd7583&language=es-SV HTTP/1.1

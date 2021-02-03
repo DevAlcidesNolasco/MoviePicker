@@ -1,0 +1,52 @@
+<ion-grid *ngIf="actor | async as actor" fixed>
+  <ion-row>
+    <ion-col size="12" size-md="3">
+      <ion-card>
+        <ion-img [src]="'https://image.tmdb.org/t/p/w500' + actor.profile_path"></ion-img>
+        <ion-card-header>
+          <ion-card-subtitle>Nombre</ion-card-subtitle>
+          <ion-card-title>{{actor.name}}</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+    </ion-col>
+    <ion-col size="12" size-md="6">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Biografia</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <p>{{ actor.biography }}</p>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+    <ion-col size="12" size-md="3">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle>Fecha de Nacimiento</ion-card-subtitle>
+          <ion-card-title>{{ actor.birthday | date }}</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle>Lugar de Nacimiento</ion-card-subtitle>
+          <ion-card-title>{{ actor.place_of_birth }}</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle>Popularidad</ion-card-subtitle>
+          <ion-card-title>{{ actor.popularity }}</ion-card-title>
+          <ion-progress-bar [value]="actor.popularity / 10"
+            [color]="(actor.popularity > 5.000) ? ((actor.popularity > 10.000) ? ((actor.popularity > 20.000) ? 'success' : 'primary') : 'warning') : 'danger' ">
+          </ion-progress-bar>
+        </ion-card-header>
+      </ion-card>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle>Reconocido por</ion-card-subtitle>
+          <ion-card-title>{{ actor.known_for_department }}</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>
