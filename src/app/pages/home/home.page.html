@@ -9,12 +9,171 @@
 
   <ion-grid fixed>
     <ion-row>
-      <ion-col size="12" offset="0" size-md="8" offset-md="2">
+      <ion-col size="12">
         <ion-card>
-          <ion-img src="../../assets/icon/Frame 2Logo Alvaro Nolasco.svg"></ion-img>
-          <ion-card-header>            
+          <ion-item>
+            <ion-thumbnail slot="start">
+              <img src="../../assets/icon/audience.svg">
+            </ion-thumbnail>
+            <ion-label>MoviePicker</ion-label>
+          </ion-item>
+          <ion-card-header>
+            <ion-card-title>Descripcion</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <p>Tu aplicacion para encontrar toda la informacion que necesitas de entretenimiento.</p>
+          </ion-card-content>
+        </ion-card>
+        <ion-card color="primary">
+          <ion-card-header>
+            <ion-card-subtitle>Categorias</ion-card-subtitle>
+            <ion-card-title>Modulos</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" size-md="4">
+        <ion-card>
+          <ion-img src="../../assets/icon/movie.svg"></ion-img>
+          <ion-card-header>
+            <ion-card-title>Películas</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <p>Muestra informacion de peliculas.</p>
+            <p>Ademas te muestra información sobre las películas populares y puedes buscar las películas que quieras.
+            </p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" size-md="4">
+        <ion-card>
+          <ion-img src="../../assets/icon/tv.svg"></ion-img>
+          <ion-card-header>
+            <ion-card-title>Séries</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <p>Muestra informacion de séries.</p>
+            <p>Ademas te muestra información sobre las séries populares y puedes buscar las séries que quieras.</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" size-md="4">
+        <ion-card>
+          <ion-img src="../../assets/icon/billboard.svg"></ion-img>
+          <ion-card-header>
+            <ion-card-title>Actores</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <p>Muestra informacion de actores.</p>
+            <p>Ademas te muestra información sobre las actores populares y puedes buscar las actores que quieras.</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Colores</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-grid>
+              <ion-row>
+                <ion-col size="6" size-md="4">
+                  <ion-card color="primary">
+                    <ion-card-header>
+                      <ion-card-title>Primary</ion-card-title>
+                    </ion-card-header>
+                  </ion-card>
+                </ion-col>
+                <ion-col size="6" size-md="4">
+                  <ion-card color="secondary">
+                    <ion-card-header>
+                      <ion-card-title>Secondary</ion-card-title>
+                    </ion-card-header>
+                  </ion-card>
+                </ion-col>
+                <ion-col size="6" size-md="4">
+                  <ion-card color="tertiary">
+                    <ion-card-header>
+                      <ion-card-title>Tertiary</ion-card-title>
+                    </ion-card-header>
+                  </ion-card>
+                </ion-col>
+                <ion-col size="6" size-md="4">
+                  <ion-card color="success">
+                    <ion-card-header>
+                      <ion-card-title>Success</ion-card-title>
+                    </ion-card-header>
+                  </ion-card>
+                </ion-col>
+                <ion-col size="6" size-md="4">
+                  <ion-card color="warning">
+                    <ion-card-header>
+                      <ion-card-title>Warning</ion-card-title>
+                    </ion-card-header>
+                  </ion-card>
+                </ion-col>
+                <ion-col size="6" size-md="4">
+                  <ion-card color="danger">
+                    <ion-card-header>
+                      <ion-card-title>Danger</ion-card-title>
+                    </ion-card-header>
+                  </ion-card>
+                </ion-col>
+                <ion-col size="6" size-md="4">
+                  <ion-card color="light">
+                    <ion-card-header>
+                      <ion-card-title>Light</ion-card-title>
+                    </ion-card-header>
+                  </ion-card>
+                </ion-col>
+                <ion-col size="6" size-md="4">
+                  <ion-card color="medium">
+                    <ion-card-header>
+                      <ion-card-title>Medium</ion-card-title>
+                    </ion-card-header>
+                  </ion-card>
+                </ion-col>
+                <ion-col size="6" size-md="4">
+                  <ion-card color="dark">
+                    <ion-card-header>
+                      <ion-card-title>Dark</ion-card-title>
+                    </ion-card-header>
+                  </ion-card>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" size-md="7">
+        <ion-card color="tertiary">
+          <ion-img src="../../assets/icon/Frame 4Alvaro Nolasco OnlyText.svg"></ion-img>
+        </ion-card>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-subtitle>{{ contact.job.name }}</ion-card-subtitle>
+            <ion-card-title>{{ contact.job.link }}</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" size-md="5">
+        <ion-card color="primary">
+          <ion-card-header>
+            <ion-card-title>Contacto</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+        <ion-card *ngFor="let link of contact.social_media" [href]="link.link" target="__blank">
+          <ion-item>
+            <ion-thumbnail slot="start">
+              <img [src]="'../../assets/icon/' + link.icon + '.svg'">
+            </ion-thumbnail>
+            <ion-label>{{ link.name }}</ion-label>
+          </ion-item>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12">
+        <ion-card>
+          <ion-card-header>
             <ion-card-title>MoviePicker</ion-card-title>
-            <ion-card-subtitle>By Alvaro Nolasco</ion-card-subtitle>
           </ion-card-header>
           <ion-card-content>
             <ion-list>
