@@ -7,11 +7,20 @@
     margin: 5px 10px !important;
 }
 
-ion-list{
+ion-list {
     margin: 0 10px !important;
     border-radius: 8px;
 }
 
-.app-title{
+.app-title {
     --color: var(--ion-color-dark);
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+}
+
+ion-footer {
+    --background: transparent;
 }

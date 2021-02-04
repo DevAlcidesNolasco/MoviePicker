@@ -2,10 +2,12 @@
   <ion-split-pane contentId="app">
     <ion-menu contentId="app">
       <ion-content>
-        <ion-card color="primary">
-          <ion-card-content>
-            <ion-title class="app-title">MoviePicker</ion-title>
-          </ion-card-content>
+        <ion-card color="primary" class="myHeader">
+          <ion-img src="../../assets/icon/audience.svg"></ion-img>
+          <ion-card-header >
+            <ion-card-title>MoviePicker</ion-card-title>
+            <ion-card-subtitle>By Alvaro Nolasco</ion-card-subtitle>
+          </ion-card-header>
         </ion-card>
         <ion-list>
           <ion-menu-toggle autoHide="false" *ngFor="let route of routes">
@@ -18,10 +20,12 @@
       </ion-content>
       <ion-footer class="ion-no-border">
         <ion-toolbar>
-          <ion-item>
-            <ion-note slot="start">Desarrollado por</ion-note>
-            <ion-title>Alvaro Nolasco</ion-title>
+          <ion-item class="ion-no-border">
+            <ion-note slot="end">Desarrollado por</ion-note>
           </ion-item>
+          <ion-card>
+            <ion-img src="../../assets/icon/Frame 2Logo Alvaro Nolasco.svg"></ion-img>
+          </ion-card>
         </ion-toolbar>
       </ion-footer>
     </ion-menu>
