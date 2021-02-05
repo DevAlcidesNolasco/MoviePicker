@@ -1,3 +1,48 @@
 <ion-content>
-  <h1 class="ion-text-center">Populares</h1>
+  <ion-card *ngIf="actors$ | async as actors" class="card-header">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12" size-md="7">
+          <ion-card-header>
+            <ion-card-subtitle>{{ actors.total_results }} resultados en populares.</ion-card-subtitle>
+            <ion-card-title>Populares</ion-card-title>
+          </ion-card-header>
+        </ion-col>
+        <ion-col size="12" size-md="5">
+          <ion-card color="dark" class="ion-justify-content-between">
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <ion-button color="tertiary" (click)="goBackwardPage()" [disabled]="page < 2">
+                    <ion-icon slot="icon-only" name="chevron-back"></ion-icon>
+                  </ion-button>
+                  <ion-button color="tertiary" (click)="goForwardPage()" [disabled]="page > (actors.total_pages - 1)">
+                    <ion-icon slot="icon-only" name="chevron-forward"></ion-icon>
+                  </ion-button>
+                </ion-col>
+                <ion-col>
+                  <p>Página {{ page }}</p>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+  <ion-grid fixed>
+    <ion-row *ngIf="actors$ | async as actors">
+      <ion-col *ngFor="let actor of actors.results" size="12" size-md="4">
+        <ion-card>
+          <ion-img [src]="'https://image.tmdb.org/t/p/w500' + actor.profile_path"></ion-img>
+          <ion-card-header>
+            <ion-card-subtitle>{{ actor.popularity * 1000 | number }}</ion-card-subtitle>
+            <ion-card-title>{{ actor.name }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

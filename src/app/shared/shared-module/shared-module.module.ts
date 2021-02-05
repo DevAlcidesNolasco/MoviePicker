@@ -9,14 +9,14 @@ registerLocaleData(localeEs, "es");
 @NgModule({
   declarations: [
     MediaCardComponent,
-    PersonComponent
+    PersonComponent,
   ],
   imports: [
     CommonModule
   ],
   exports: [
     MediaCardComponent,
-    PersonComponent
+    PersonComponent,
   ],
   providers: [
     {

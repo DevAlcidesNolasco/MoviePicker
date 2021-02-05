@@ -16,7 +16,7 @@ export class ThemoviedbService {
     private httpClient: HttpClient
   ) { }
 
-  public getPopular = (type: string, page: number = 1): Observable<any> => {
+  public getPopulars = (type: string, page: number = 1): Observable<any> => {
     return this.httpClient.get(`${this.apiRoute}/${type}/popular?api_key=${this.apiKey}&language=${this.language}&page=${page}`);
   }
 
