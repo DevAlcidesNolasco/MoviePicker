@@ -1,0 +1,18 @@
+<ion-fab vertical="top" horizontal="end" slot="fixed" [menuId]="page" [contentId]="page">
+  <ion-fab-button>
+    <ion-icon [name]="page == 'actors' ? 'person' : page == 'movies' ? 'videocam' : 'albums'"></ion-icon>
+  </ion-fab-button>
+  <ion-fab-list side="start" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">
+    <ion-button *ngFor="let route of router" class="page-button-link" (click)="navigation(route.route)" shape="round" [routerLink]="[route.route]">
+      <ion-icon slot="start" [name]="route.icon"></ion-icon>
+      <ion-label>{{ route.name }}</ion-label>
+    </ion-button>
+  </ion-fab-list>
+</ion-fab>
+<ion-fab vertical="bottom" horizontal="start" slot="fixed">
+  <ion-menu-toggle>
+    <ion-fab-button color="tertiary">
+      <ion-icon name="menu"></ion-icon>
+    </ion-fab-button>
+  </ion-menu-toggle>
+</ion-fab>

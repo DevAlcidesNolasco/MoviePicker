@@ -4,12 +4,14 @@ import { MediaCardComponent } from '../components/media-card/media-card.componen
 import localeEs from '@angular/common/locales/es';
 import { registerLocaleData } from '@angular/common';
 import { PersonComponent } from '../components/person/person.component';
+import { BasePageComponentComponent } from '../components/base-page-component/base-page-component.component';
 registerLocaleData(localeEs, "es");
 
 @NgModule({
   declarations: [
     MediaCardComponent,
     PersonComponent,
+    BasePageComponentComponent
   ],
   imports: [
     CommonModule
@@ -17,6 +19,7 @@ registerLocaleData(localeEs, "es");
   exports: [
     MediaCardComponent,
     PersonComponent,
+    BasePageComponentComponent
   ],
   providers: [
     {
