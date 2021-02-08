@@ -5,13 +5,17 @@ import localeEs from '@angular/common/locales/es';
 import { registerLocaleData } from '@angular/common';
 import { PersonComponent } from '../components/person/person.component';
 import { BasePageComponentComponent } from '../components/base-page-component/base-page-component.component';
+import { BaseHeaderCardComponent } from '../components/base-header-card/base-header-card.component';
+import { ListingMediaCardComponent } from '../components/listing-media-card/listing-media-card.component';
 registerLocaleData(localeEs, "es");
 
 @NgModule({
   declarations: [
     MediaCardComponent,
     PersonComponent,
-    BasePageComponentComponent
+    BasePageComponentComponent,
+    BaseHeaderCardComponent,
+    ListingMediaCardComponent
   ],
   imports: [
     CommonModule
@@ -19,7 +23,9 @@ registerLocaleData(localeEs, "es");
   exports: [
     MediaCardComponent,
     PersonComponent,
-    BasePageComponentComponent
+    BasePageComponentComponent,
+    BaseHeaderCardComponent,
+    ListingMediaCardComponent
   ],
   providers: [
     {

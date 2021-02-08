@@ -1,0 +1,14 @@
+<ion-content>
+  <app-base-header-card *ngIf="popularData$ | async as popularData" [data]="base$ | async"
+    [pages]="{ 'actual': popularData.page, 'total': popularData.total_pages}"
+    [total_results]="popularData.total_results" (changePage)="getChangePage($event)">
+  </app-base-header-card>
+  <ion-grid fixed *ngIf="popularData$ | async as popularData">
+    <ion-row>
+      <ion-col size="12" size-md="4" *ngFor="let data of popularData.results">
+        <app-listing-media-card [data]="data"></app-listing-media-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

@@ -1,0 +1,28 @@
+<ion-card>
+  <div class="backdrop"
+    [ngStyle]="{ 'background-image': 'url(https://image.tmdb.org/t/p/w400' + (data.backdrop_path) ? data.backdrop_path : data.profile_path + ')' }">
+  </div>
+  <div class="wrapper">
+    <ion-card-header>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="auto" class="ion-no-margin ion-no-padding">
+            <ion-avatar>
+              <img [src]="'https://image.tmdb.org/t/p/w200' + data.profile_path">
+            </ion-avatar>
+          </ion-col>
+          <ion-col class="ion-no-margin ion-no-padding">
+            <ion-card-title>{{ data.title || data.name }}</ion-card-title>
+            <ion-card-subtitle>{{ data.release_date | date }}</ion-card-subtitle>
+            <ion-progress-bar [color]="data.vote_average < 3 ? 'danger' : data.vote_average < 5 ? 'warning' :  data.vote_average < 8 ? 'success' : 'primary'" [value]="data.vote_average / 10"></ion-progress-bar>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-label>Descripcion</ion-label>
+      <p>{{ data.overview }}</p>
+    </ion-card-content>
+  </div>
+
+</ion-card>

@@ -6,7 +6,22 @@ import { MoviesPage } from './movies.page';
 const routes: Routes = [
   {
     path: '',
-    component: MoviesPage
+    component: MoviesPage,
+    children: [
+      {
+        path: "populars",
+        loadChildren: () => import("../../shared/pages/populars/populars.module").then(m => m.PopularsPageModule),
+        data: {
+          base: "movie"
+        }
+      },
+      {
+        path: "",
+        redirectTo: "populars",
+        pathMatch: "full"
+      }
+
+    ]
   }
 ];
 
@@ -14,4 +29,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class MoviesPageRoutingModule {}
+export class MoviesPageRoutingModule { }

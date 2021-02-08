@@ -10,11 +10,17 @@ const routes: Routes = [
     children: [
       {
         path: "populars",
-        loadChildren: () => import("../actors-pages/populars/populars.module").then(m => m.PopularsPageModule)
+        loadChildren: () => import("../../shared/pages/populars/populars.module").then(m => m.PopularsPageModule),
+        data: {
+          base: "person"
+        }
       },
       {
         path: "search",
-        loadChildren: () => import("../actors-pages/search/search.module").then(m => m.SearchPageModule)
+        loadChildren: () => import("../actors-pages/search/search.module").then(m => m.SearchPageModule),
+        data: {
+          base: "person"
+        }
       },
       {
         path: "",
