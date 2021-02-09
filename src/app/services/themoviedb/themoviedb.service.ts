@@ -28,6 +28,10 @@ export class ThemoviedbService {
     return this.httpClient.get(`${this.apiRoute}/${type}/${id}?api_key=${this.apiKey}&language=${this.language}`);
   }
 
+  public getGenresList = (type: string): Observable<any> => {
+    return this.httpClient.get(`${this.apiRoute}/genre/${type}/list?api_key=${this.apiKey}&language=${this.language}`);
+  }
+
 
 
 

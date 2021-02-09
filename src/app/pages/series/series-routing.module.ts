@@ -6,7 +6,28 @@ import { SeriesPage } from './series.page';
 const routes: Routes = [
   {
     path: '',
-    component: SeriesPage
+    component: SeriesPage,
+    children: [
+      {
+        path: "populars",
+        loadChildren: () => import("../../shared/pages/populars/populars.module").then(m => m.PopularsPageModule),
+        data: {
+          base: "tv"
+        }
+      },
+      {
+        path: "search",
+        loadChildren: () => import("../actors-pages/search/search.module").then(m => m.SearchPageModule),
+        data: {
+          base: "tv"
+        }
+      },
+      {
+        path: "",
+        redirectTo: "populars",
+        pathMatch: "full"
+      }
+    ]
   }
 ];
 
@@ -14,4 +35,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class SeriesPageRoutingModule {}
+export class SeriesPageRoutingModule { }

@@ -16,6 +16,13 @@ const routes: Routes = [
         }
       },
       {
+        path: "details",
+        loadChildren: () => import("../../shared/pages/details/details.module").then(m => m.DetailsPageModule),
+        data: {
+          base: "movie"
+        }
+      },
+      {
         path: "",
         redirectTo: "populars",
         pathMatch: "full"

@@ -1,67 +1,23 @@
 ion-card {
     border-radius: 15px;
-    max-height: 60vh;
-    div.backdrop {
-        height: 300px;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
-    div.wrapper {
-        position: absolute;
-        top: 70%;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 100%;
-        height: 100%;
-        ion-card-header {
-            background: var(--ion-color-dark);
-            border-radius: 10px;
-            width: 95%;
-            left: 50%;
-            transform: translateX(-50%);
-            ion-card-title {
-                color: var(--ion-color-light);
-            }
-            ion-card-subtitle {
-                color: var(--ion-color-light-tint);
-            }
-            ion-progress-bar{
-                height: 5px;
-            }
-        }
-    }
-    /*ion-card-header {
-        background: var(--ion-color-dark);
-        border-radius: 10px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 95%;
-        margin: 0px auto !important;
-        ion-card-title {
-            color: var(--ion-color-light);
-        }
-        ion-card-subtitle {
-            color: var(--ion-color-light-tint);
-        }
-    }
-    ion-card-content {
-        transform: translateY(30%);
-        ion-label {
-            color: var(--ion-color-dark-tint);
-            font-size: 12px;
-            margin: 0px auto;
-        }
-        p {
-            color: var(--ion-color-dark-shade);
-            font-size: 16px;
-        }
-    }*/
+    height: 350px;
     overflow-y: auto;
-
     &::-webkit-scrollbar {
         display: none;
+    }
+    ion-img {
+        height: 250px;
+        object-fit: cover;
+        object-position: center;
+    }
+    ion-card-content {
+        ion-label.description {
+            color: var(--ion-color-dark-shade);
+            margin-top: 18px;
+        }
+        p.description {
+            color: var(--ion-color-dark-tint);
+            font-size: 16px;
+        }
     }
 }

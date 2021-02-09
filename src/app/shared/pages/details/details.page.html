@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button icon="chevron-back-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-title>details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid fixed *ngIf="detailsMedia$ | async as detailsMedia">
+    <ion-row>
+      <ion-col size="12" [sizeMd]="(detailsMedia.biography || detailsMedia.overview) ? 4 : 6">
+        <ion-card>
+          <ion-img [src]="'https://image.tmdb.org/t/p/w500' + (detailsMedia.profile_path || detailsMedia.poster_path)"></ion-img>
+          <ion-card-header>
+            <ion-card-subtitle>{{ detailsMedia.name ? 'Nombre' : 'Título'}}</ion-card-subtitle>
+            <ion-card-title>{{ detailsMedia.name || detailsMedia.title }}</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col *ngIf="detailsMedia.biography || detailsMedia.overview" size="12" size-md="5">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>{{ detailsMedia.biography ? 'Biografía' : 'Sinopsis' }}</ion-card-title>
+            <ion-card-subtitle>{{ detailsMedia.biography || detailsMedia.overview }}</ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" [sizeMd]="(detailsMedia.biography || detailsMedia.overview) ? '3' : '6'">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-subtitle>Conocida por</ion-card-subtitle>
+            <ion-card-title>{{ detailsMedia.known_for_department == "Acting" ? "Actuar" :
+              detailsMedia.known_for_department }}</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-subtitle>Fecha de Nacimiento</ion-card-subtitle>
+            <ion-card-title>{{ detailsMedia.birthday | date }}</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-subtitle>Lugar de Nacimiento</ion-card-subtitle>
+            <ion-card-title>{{ detailsMedia.place_of_birth }}</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-subtitle>Popularidad</ion-card-subtitle>
+            <ion-card-title>{{ detailsMedia.popularity | number }}</ion-card-title>
+            <ion-progress-bar color="primary" [value]="(detailsMedia.popularity | number) / 1000"></ion-progress-bar>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
