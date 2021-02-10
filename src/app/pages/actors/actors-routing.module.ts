@@ -17,7 +17,7 @@ const routes: Routes = [
       },
       {
         path: "search",
-        loadChildren: () => import("../actors-pages/search/search.module").then(m => m.SearchPageModule),
+        loadChildren: () => import("../../shared/pages/search/search.module").then(m => m.SearchPageModule),
         data: {
           base: "person"
         }

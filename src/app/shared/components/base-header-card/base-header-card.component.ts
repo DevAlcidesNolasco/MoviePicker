@@ -14,12 +14,7 @@ export class BaseHeaderCardComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-    console.log({
-      "data": this.data,
-      "pages": this.pages
-    });
-  }
+  ngOnInit() { }
 
   public goBackwardPage = (actual: number): void => {
     this.changePage.emit({ "direction": "back", "actual": actual });

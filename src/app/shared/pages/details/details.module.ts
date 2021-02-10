@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { DetailsPageRoutingModule } from './details-routing.module';
+import { ReactiveComponentModule } from '@ngrx/component';
 
 import { DetailsPage } from './details.page';
 
@@ -13,8 +14,9 @@ import { DetailsPage } from './details.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    DetailsPageRoutingModule
+    DetailsPageRoutingModule,
+    ReactiveComponentModule
   ],
   declarations: [DetailsPage]
 })
-export class DetailsPageModule {}
+export class DetailsPageModule { }

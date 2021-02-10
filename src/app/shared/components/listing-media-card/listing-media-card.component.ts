@@ -14,10 +14,7 @@ export class ListingMediaCardComponent implements OnInit {
     private routerController: Router
   ) { }
 
-  ngOnInit() {
-    console.log(this.data);
-
-  }
+  ngOnInit() { }
 
   getDetails = (id: string) => {
     let type: string = this.type === "person" ? "actors" : this.type === "tv" ? "series" : "movies";

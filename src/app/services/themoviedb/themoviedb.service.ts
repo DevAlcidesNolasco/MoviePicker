@@ -32,17 +32,10 @@ export class ThemoviedbService {
     return this.httpClient.get(`${this.apiRoute}/genre/${type}/list?api_key=${this.apiKey}&language=${this.language}`);
   }
 
-
-
-
-
-  public getPopularMovies = (page: number = 1): Observable<any> => {
-    return this.httpClient.get(`${this.apiRoute}/movie/popular?api_key=${this.apiKey}&language=${this.language}&page=${page}`);
+  public getImages = (type: string, id: number): Observable<any> => {
+    let query: string = `${this.apiRoute}/${type}/${id}/images?api_key=${this.apiKey}&language=${this.language}`;
+    if (type === 'movie') query += "&include_image_language=es";
+    return this.httpClient.get(query);
   }
-
-  public getPopularSeries = (page: number = 1): Observable<any> => {
-    return this.httpClient.get(`${this.apiRoute}/tv/popular?api_key=${this.apiKey}&language=${this.language}&page=${page}`);
-  }
-
 
 }

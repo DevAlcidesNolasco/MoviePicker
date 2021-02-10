@@ -1,6 +1,6 @@
 <ion-card>
   <ion-img [src]="'https://image.tmdb.org/t/p/w400' + (data.backdrop_path || data.profile_path)"></ion-img>
-  <ion-card-header color="medium">
+  <ion-card-header color="tertiary">
     <ion-avatar slot="start">
       <img [src]="'https://image.tmdb.org/t/p/w200' + (data.profile_path || data.poster_path)">
     </ion-avatar>
@@ -11,7 +11,6 @@
     <ion-card-subtitle>{{ (data.release_date | date) || (data.popularity | number) }}</ion-card-subtitle>
   </ion-card-header>
   <ion-card-content>
-    <ion-label class="description" *ngIf="data.overview">Descripción</ion-label>
     <p class="description" *ngIf="data.overview">{{ data.overview }}</p>
     <ion-button expand="block" color="tertiary" (click)="getDetails(data.id)">
       <ion-icon slot="start" name="reader-outline"></ion-icon>

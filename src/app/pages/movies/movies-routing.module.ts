@@ -16,6 +16,13 @@ const routes: Routes = [
         }
       },
       {
+        path: "search",
+        loadChildren: () => import("../../shared/pages/search/search.module").then(m => m.SearchPageModule),
+        data: {
+          base: "movie"
+        }
+      },
+      {
         path: "details",
         loadChildren: () => import("../../shared/pages/details/details.module").then(m => m.DetailsPageModule),
         data: {
