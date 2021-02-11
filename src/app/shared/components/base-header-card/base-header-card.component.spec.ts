@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
 import { BaseHeaderCardComponent } from './base-header-card.component';
@@ -7,7 +7,7 @@ describe('BaseHeaderCardComponent', () => {
   let component: BaseHeaderCardComponent;
   let fixture: ComponentFixture<BaseHeaderCardComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ BaseHeaderCardComponent ],
       imports: [IonicModule.forRoot()]

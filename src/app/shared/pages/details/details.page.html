@@ -71,6 +71,9 @@
             <ion-card-subtitle>{{item.key}}</ion-card-subtitle>
             <ion-card-title>{{item.value}}</ion-card-title>
           </ion-card-header>
+          <ion-card-content>
+            {{ getTypeOf(item.value) }}
+          </ion-card-content>
         </ion-card>
       </ion-col>
     </ion-row>

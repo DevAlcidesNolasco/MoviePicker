@@ -35,4 +35,8 @@ export class DetailsPage implements OnInit {
     slider.slideNext(500);
   }
 
+  public getTypeOf = (property: any): string => {
+    return typeof property;
+  }
+
 }

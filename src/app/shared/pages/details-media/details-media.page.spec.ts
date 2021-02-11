@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
 import { DetailsMediaPage } from './details-media.page';
@@ -7,7 +7,7 @@ describe('DetailsMediaPage', () => {
   let component: DetailsMediaPage;
   let fixture: ComponentFixture<DetailsMediaPage>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ DetailsMediaPage ],
       imports: [IonicModule.forRoot()]
