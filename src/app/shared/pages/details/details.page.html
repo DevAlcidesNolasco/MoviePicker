@@ -37,7 +37,7 @@
           </ion-card-header>
         </ion-card>
       </ion-col>
-      <ion-col size="12" [sizeMd]="(detailsMedia.biography || detailsMedia.overview) ? '3' : '6'">
+      <ion-col size="12" [sizeMd]="detailsMedia.biography || detailsMedia.overview ? '3' : '6'">
         <ion-card>
           <ion-card-header>
             <ion-card-subtitle>Conocida por</ion-card-subtitle>
@@ -61,7 +61,15 @@
           <ion-card-header>
             <ion-card-subtitle>Popularidad</ion-card-subtitle>
             <ion-card-title>{{ detailsMedia.popularity | number }}</ion-card-title>
-            <ion-progress-bar color="primary" [value]="(detailsMedia.popularity | number) / 1000"></ion-progress-bar>
+            <ion-progress-bar color="primary" [value]="detailsMedia.popularity / 1000"></ion-progress-bar>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" *ngFor="let item of detailsMedia | keyvalue">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-subtitle>{{item.key}}</ion-card-subtitle>
+            <ion-card-title>{{item.value}}</ion-card-title>
           </ion-card-header>
         </ion-card>
       </ion-col>

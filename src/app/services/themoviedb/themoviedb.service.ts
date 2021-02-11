@@ -2,6 +2,11 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { Observable } from 'rxjs';
+import { IPopulars } from '../../interfaces/ipopulars';
+import { IMovie } from 'src/app/interfaces/imovie';
+import { ITv } from 'src/app/interfaces/itv';
+import { IPerson } from 'src/app/interfaces/iperson';
+import { IGenre } from 'src/app/interfaces/igenre';
 
 @Injectable({
   providedIn: 'root'
@@ -16,20 +21,14 @@ export class ThemoviedbService {
     private httpClient: HttpClient
   ) { }
 
-  public getPopulars = (type: string, page: number = 1): Observable<any> => {
-    return this.httpClient.get(`${this.apiRoute}/${type}/popular?api_key=${this.apiKey}&language=${this.language}&page=${page}`);
-  }
+  public getPopulars = (type: string, page: number = 1): Observable<IPopulars> => this.httpClient.get(`${this.apiRoute}/${type}/popular?api_key=${this.apiKey}&language=${this.language}&page=${page}`);
 
-  public getSearch = (type: string, query: string, page: number = 1): Observable<any> => {
-    return this.httpClient.get(`${this.apiRoute}/search/${type}?api_key=${this.apiKey}&language=${this.language}&query=${query}&page=${page}&include_adult=false`);
-  }
+  public getSearch = (type: string, query: string, page: number = 1): Observable<any> => this.httpClient.get(`${this.apiRoute}/search/${type}?api_key=${this.apiKey}&language=${this.language}&query=${query}&page=${page}&include_adult=false`);
 
-  public getDetails = (type: string, id: number): Observable<any> => {
-    return this.httpClient.get(`${this.apiRoute}/${type}/${id}?api_key=${this.apiKey}&language=${this.language}`);
-  }
+  public getDetails = (type: string, id: number): Observable<IMovie | ITv | IPerson> => this.httpClient.get(`${this.apiRoute}/${type}/${id}?api_key=${this.apiKey}&language=${this.language}`);
 
-  public getGenresList = (type: string): Observable<any> => {
-    return this.httpClient.get(`${this.apiRoute}/genre/${type}/list?api_key=${this.apiKey}&language=${this.language}`);
+  public getGenresList = (type: string): Observable<IGenre[]> => {
+    return this.httpClient.get<IGenre[]>(`${this.apiRoute}/genre/${type}/list?api_key=${this.apiKey}&language=${this.language}`);
   }
 
   public getImages = (type: string, id: number): Observable<any> => {

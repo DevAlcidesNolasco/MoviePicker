@@ -5,8 +5,8 @@
       <img [src]="'https://image.tmdb.org/t/p/w200' + (data.profile_path || data.poster_path)">
     </ion-avatar>
     <ion-progress-bar
-      [color]="(data.vote_average < 3 || (data.popularity | number) < 1000) ? 'danger' : (data.vote_average < 5 || (data.popularity | number) < 5000) ? 'warning' : (data.vote_average < 8 || (data.popularity | number) < 50000) ? 'success' : 'primary'"
-      [value]="(data.vote_average / 10 || data.popularity / 100)"></ion-progress-bar>
+      [color]="data.vote_average < 3 || data.popularity < 1000 ? 'danger' : data.vote_average < 5 || data.popularity < 5000 ? 'warning' : data.vote_average < 8 || data.popularity < 50000 ? 'success' : 'primary'"
+      [value]="data.vote_average / 10 || data.popularity / 100"></ion-progress-bar>
     <ion-card-title [title]="data.title || data.name">{{ data.title || data.name }}</ion-card-title>
     <ion-card-subtitle>{{ (data.release_date | date) || (data.popularity | number) }}</ion-card-subtitle>
   </ion-card-header>

@@ -12,18 +12,24 @@
         <ion-card color="dark" class="ion-justify-content-between">
           <ion-grid>
             <ion-row>
-              <ion-col>
-                <!--[disabled]="page < 2"-->
-                <ion-button color="tertiary" (click)="goBackwardPage(pages.actual)">
+              <ion-col size='2'>
+                <ion-button color="tertiary" (click)="goBackwardPage(pages.actual)" [disabled]="pages.actual < 2">
                   <ion-icon slot="icon-only" name="chevron-back"></ion-icon>
                 </ion-button>
-                <!--[disabled]="page > (actors.total_pages - 1)"-->
-                <ion-button color="tertiary" (click)="goForwardPage(pages.actual)" >
+              </ion-col>
+              <ion-col size="8">
+                <ion-card>
+                  <ion-item>
+                    <ion-icon name="documents-outline" slot="start"></ion-icon>
+                    <ion-label slot="end">Página {{ pages.actual }}</ion-label>
+                  </ion-item>
+                </ion-card>
+              </ion-col>
+              <ion-col size="2">
+                <ion-button color="tertiary" (click)="goForwardPage(pages.actual)"
+                  [disabled]="pages.actual > pages.total - 1">
                   <ion-icon slot="icon-only" name="chevron-forward"></ion-icon>
                 </ion-button>
-              </ion-col>
-              <ion-col>
-                <p>Página {{ pages.actual }}</p>
               </ion-col>
             </ion-row>
           </ion-grid>

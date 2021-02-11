@@ -9,14 +9,8 @@ import { ThemoviedbService } from 'src/app/services/themoviedb/themoviedb.servic
 })
 export class MoviesPage implements OnInit {
 
-  public movies: Observable<any>;
+  constructor() { }
 
-  constructor(
-    public theMovieDbService: ThemoviedbService
-  ) { }
+  ngOnInit() { }
 
-  ngOnInit() {
-    this.movies = this.theMovieDbService.getPopularMovies();
-  }
-  
 }

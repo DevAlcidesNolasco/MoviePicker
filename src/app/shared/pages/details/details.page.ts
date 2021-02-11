@@ -26,14 +26,12 @@ export class DetailsPage implements OnInit {
       this.detailsMedia$ = this.theMovieDbService.getDetails(data.base, this.route.snapshot.params.id)
       this.images$ = this.theMovieDbService.getImages(data.base, this.route.snapshot.params.id);
     });
-    this.images$.subscribe((data => {
+    this.detailsMedia$.subscribe((data) => {
       console.log(data);
-
-    }));
-
+    });
   }
 
-  tapToNext = (slider) => {
+  tapToNext = (slider: any) => {
     slider.slideNext(500);
   }
 

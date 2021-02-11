@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
+import { IPopulars } from 'src/app/interfaces/ipopulars';
 import { ThemoviedbService } from 'src/app/services/themoviedb/themoviedb.service';
 
 @Component({
@@ -11,7 +12,7 @@ import { ThemoviedbService } from 'src/app/services/themoviedb/themoviedb.servic
 export class PopularsPage implements OnInit {
 
   public base$: Observable<any>;
-  public popularData$: Observable<any>;
+  public popularData$: Observable<IPopulars>;
 
   constructor(
     private route: ActivatedRoute,

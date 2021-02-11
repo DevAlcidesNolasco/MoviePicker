@@ -9,14 +9,8 @@ import { ThemoviedbService } from 'src/app/services/themoviedb/themoviedb.servic
 })
 export class SeriesPage implements OnInit {
 
-  public series: Observable<any>;
+  constructor() { }
 
-  constructor(
-    public theMovieDbService: ThemoviedbService
-  ) { }
-
-  ngOnInit() {
-    this.series = this.theMovieDbService.getPopularSeries();
-  }
+  ngOnInit() { }
 
 }
