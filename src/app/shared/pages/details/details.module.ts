@@ -8,6 +8,7 @@ import { DetailsPageRoutingModule } from './details-routing.module';
 import { ReactiveComponentModule } from '@ngrx/component';
 
 import { DetailsPage } from './details.page';
+import { SharedModuleModule } from '../../shared-module/shared-module.module';
 
 @NgModule({
   imports: [
@@ -15,8 +16,11 @@ import { DetailsPage } from './details.page';
     FormsModule,
     IonicModule,
     DetailsPageRoutingModule,
-    ReactiveComponentModule
+    ReactiveComponentModule,
+    SharedModuleModule,
   ],
-  declarations: [DetailsPage]
+  declarations: [
+    DetailsPage
+  ]
 })
 export class DetailsPageModule { }

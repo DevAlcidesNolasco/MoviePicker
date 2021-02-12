@@ -11,10 +11,6 @@ ion-card {
         object-position: center;
     }
     ion-card-content {
-        ion-label.description {
-            color: var(--ion-color-dark-shade);
-            margin-top: 18px;
-        }
         p.description {
             color: var(--ion-color-dark-tint);
             font-size: 16px;

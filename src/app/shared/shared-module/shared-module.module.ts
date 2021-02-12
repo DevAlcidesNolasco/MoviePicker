@@ -7,6 +7,11 @@ import { PersonComponent } from '../components/person/person.component';
 import { BasePageComponentComponent } from '../components/base-page-component/base-page-component.component';
 import { BaseHeaderCardComponent } from '../components/base-header-card/base-header-card.component';
 import { ListingMediaCardComponent } from '../components/listing-media-card/listing-media-card.component';
+import { DetailCardTvComponent } from '../components/detail-card-tv/detail-card-tv.component';
+import { DetailCardPersonComponent } from '../components/detail-card-person/detail-card-person.component';
+import { DetailCardMovieComponent } from '../components/detail-card-movie/detail-card-movie.component';
+import { ReactiveComponentModule } from '@ngrx/component';
+import { HttpClientModule } from '@angular/common/http';
 registerLocaleData(localeEs, "es");
 
 @NgModule({
@@ -15,17 +20,25 @@ registerLocaleData(localeEs, "es");
     PersonComponent,
     BasePageComponentComponent,
     BaseHeaderCardComponent,
-    ListingMediaCardComponent
+    ListingMediaCardComponent,
+    DetailCardTvComponent,
+    DetailCardPersonComponent,
+    DetailCardMovieComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    ReactiveComponentModule,
+    HttpClientModule
   ],
   exports: [
     MediaCardComponent,
     PersonComponent,
     BasePageComponentComponent,
     BaseHeaderCardComponent,
-    ListingMediaCardComponent
+    ListingMediaCardComponent,
+    DetailCardTvComponent,
+    DetailCardPersonComponent,
+    DetailCardMovieComponent
   ],
   providers: [
     {
