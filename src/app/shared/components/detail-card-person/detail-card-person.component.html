@@ -63,13 +63,13 @@
         </ion-card-header>
       </ion-card>
     </ion-col>
-    <ion-col size="12" *ngrxLet="credits$ as credits">
+    <ion-col size="12" size-md="6" offset-md="3" *ngrxLet="credits$ as credits">
       <ion-card>
         <ion-card-header color="medium">
           <ion-card-title>Participaciones</ion-card-title>
         </ion-card-header>
         <ion-card-content class="ion-no-padding">
-          <ion-slides [options]="{ autoHeigth: true, slidesPerView: 1.5, centeredSlides: true }" scrollbar="true">
+          <ion-slides [options]="{ autoHeigth: true, slidesPerView: 1.5, centeredSlides: true, freeMode: true }" scrollbar="true">
             <ion-slide *ngFor="let cast of credits.cast">
               <ion-card>
                 <ion-img *ngIf="cast.poster_path || cast.backdrop_path"
