@@ -7,6 +7,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePage implements OnInit {
 
+  public colors: string[] = ["primary", "secondary", "tertiary", "success", "warning", "danger", "dark", "medium", "light"];
+
+  public modules: any[] = [
+    {
+      icon: "movie",
+      name: "Películas",
+      details: [
+        "Muestra informacion de peliculas",
+        "Ademas te muestra información sobre las películas populares y puedes buscar las películas que quieras"
+      ]
+    },
+    {
+      icon: "tv",
+      name: "Séries",
+      details: [
+        "Muestra informacion de séries",
+        "Ademas te muestra información sobre las séries populares y puedes buscar las séries que quieras"
+      ]
+    },
+    {
+      icon: "billboard",
+      name: "Actores",
+      details: [
+        "Muestra informacion de actores",
+        "Ademas te muestra información sobre las actores populares y puedes buscar las actores que quieras"
+      ]
+    }
+  ];
+
   public contact: any = {
     "social_media": [
       {

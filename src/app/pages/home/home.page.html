@@ -6,65 +6,42 @@
       </ion-fab-button>
     </ion-menu-toggle>
   </ion-fab>
-
   <ion-grid fixed>
     <ion-row>
       <ion-col size="12">
         <ion-card>
-          <ion-item>
+          <ion-item style="--background: transparent;">
             <ion-thumbnail slot="start">
               <img src="../../assets/icon/audience.svg">
             </ion-thumbnail>
-            <ion-label>MoviePicker</ion-label>
+            <ion-title>MoviePicker</ion-title>
           </ion-item>
           <ion-card-header>
             <ion-card-title>Descripcion</ion-card-title>
+            <ion-card-subtitle>Tu aplicación para encontrar toda la informacion que necesitas de entretenimiento.
+            </ion-card-subtitle>
           </ion-card-header>
           <ion-card-content>
-            <p>Tu aplicación para encontrar toda la informacion que necesitas de entretenimiento.</p>
-          </ion-card-content>
-        </ion-card>
-        <ion-card color="primary">
-          <ion-card-header>
-            <ion-card-subtitle>Categorias</ion-card-subtitle>
-            <ion-card-title>Modulos</ion-card-title>
-          </ion-card-header>
-        </ion-card>
-      </ion-col>
-      <ion-col size="12" size-md="4">
-        <ion-card>
-          <ion-img src="../../assets/icon/movie.svg"></ion-img>
-          <ion-card-header>
-            <ion-card-title>Películas</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>
-            <p>Muestra informacion de peliculas.</p>
-            <p>Ademas te muestra información sobre las películas populares y puedes buscar las películas que quieras.
-            </p>
-          </ion-card-content>
-        </ion-card>
-      </ion-col>
-      <ion-col size="12" size-md="4">
-        <ion-card>
-          <ion-img src="../../assets/icon/tv.svg"></ion-img>
-          <ion-card-header>
-            <ion-card-title>Séries</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>
-            <p>Muestra informacion de séries.</p>
-            <p>Ademas te muestra información sobre las séries populares y puedes buscar las séries que quieras.</p>
-          </ion-card-content>
-        </ion-card>
-      </ion-col>
-      <ion-col size="12" size-md="4">
-        <ion-card>
-          <ion-img src="../../assets/icon/billboard.svg"></ion-img>
-          <ion-card-header>
-            <ion-card-title>Actores</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>
-            <p>Muestra informacion de actores.</p>
-            <p>Ademas te muestra información sobre las actores populares y puedes buscar las actores que quieras.</p>
+            <ion-card color="medium">
+              <ion-card-header>
+                <ion-card-title>Módulos</ion-card-title>
+              </ion-card-header>
+              <ion-card-content class="ion-no-padding">
+                <ion-slides scrollbar="true" [options]="{ slidesPerView: 1.2, centeredSlides: true }">
+                  <ion-slide *ngFor="let module of modules">
+                    <ion-card>
+                      <ion-img [src]="'../../assets/icon/' + module.icon + '.svg'"></ion-img>
+                      <ion-card-header>
+                        <ion-card-title>{{module.name}}</ion-card-title>
+                      </ion-card-header>
+                      <ion-card-content>
+                        <p *ngFor="let detail of module.details">{{ detail }}</p>
+                      </ion-card-content>
+                    </ion-card>
+                  </ion-slide>
+                </ion-slides>
+              </ion-card-content>
+            </ion-card>
           </ion-card-content>
         </ion-card>
       </ion-col>
@@ -76,66 +53,10 @@
           <ion-card-content>
             <ion-grid>
               <ion-row>
-                <ion-col size="6" size-md="4">
-                  <ion-card color="primary">
+                <ion-col *ngFor="let color of colors" size="6" size-md="4">
+                  <ion-card [color]="color">
                     <ion-card-header>
-                      <ion-card-title>Primary</ion-card-title>
-                    </ion-card-header>
-                  </ion-card>
-                </ion-col>
-                <ion-col size="6" size-md="4">
-                  <ion-card color="secondary">
-                    <ion-card-header>
-                      <ion-card-title>Secondary</ion-card-title>
-                    </ion-card-header>
-                  </ion-card>
-                </ion-col>
-                <ion-col size="6" size-md="4">
-                  <ion-card color="tertiary">
-                    <ion-card-header>
-                      <ion-card-title>Tertiary</ion-card-title>
-                    </ion-card-header>
-                  </ion-card>
-                </ion-col>
-                <ion-col size="6" size-md="4">
-                  <ion-card color="success">
-                    <ion-card-header>
-                      <ion-card-title>Success</ion-card-title>
-                    </ion-card-header>
-                  </ion-card>
-                </ion-col>
-                <ion-col size="6" size-md="4">
-                  <ion-card color="warning">
-                    <ion-card-header>
-                      <ion-card-title>Warning</ion-card-title>
-                    </ion-card-header>
-                  </ion-card>
-                </ion-col>
-                <ion-col size="6" size-md="4">
-                  <ion-card color="danger">
-                    <ion-card-header>
-                      <ion-card-title>Danger</ion-card-title>
-                    </ion-card-header>
-                  </ion-card>
-                </ion-col>
-                <ion-col size="6" size-md="4">
-                  <ion-card color="light">
-                    <ion-card-header>
-                      <ion-card-title>Light</ion-card-title>
-                    </ion-card-header>
-                  </ion-card>
-                </ion-col>
-                <ion-col size="6" size-md="4">
-                  <ion-card color="medium">
-                    <ion-card-header>
-                      <ion-card-title>Medium</ion-card-title>
-                    </ion-card-header>
-                  </ion-card>
-                </ion-col>
-                <ion-col size="6" size-md="4">
-                  <ion-card color="dark">
-                    <ion-card-header>
-                      <ion-card-title>Dark</ion-card-title>
+                      <ion-card-subtitle>{{ color }}</ion-card-subtitle>
                     </ion-card-header>
                   </ion-card>
                 </ion-col>
@@ -145,7 +66,7 @@
         </ion-card>
       </ion-col>
       <ion-col size="12" size-md="7">
-        <ion-card color="tertiary">
+        <ion-card color="medium">
           <ion-img src="../../assets/icon/Frame 4Alvaro Nolasco OnlyText.svg"></ion-img>
         </ion-card>
         <ion-card>
@@ -168,48 +89,6 @@
             </ion-thumbnail>
             <ion-label>{{ link.name }}</ion-label>
           </ion-item>
-        </ion-card>
-      </ion-col>
-      <ion-col size="12">
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>MoviePicker</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>
-            <ion-list>
-              <ion-item-group>
-                <ion-item-divider color="primary">
-                  <ion-icon slot="start" name="code-working"></ion-icon>
-                  <ion-label>Herramientas</ion-label>
-                </ion-item-divider>
-                <ion-item>
-                  <ion-icon slot="start" name="logo-ionic" color="primary"></ion-icon>
-                  <ion-label>Ionic Framework</ion-label>
-                </ion-item>
-                <ion-item>
-                  <ion-icon slot="start" name="logo-angular" color="danger"></ion-icon>
-                  <ion-label>Angular Framework</ion-label>
-                </ion-item>
-                <ion-item>
-                  <ion-icon slot="start" name="logo-sass" color="danger"></ion-icon>
-                  <ion-label>Sass</ion-label>
-                </ion-item>
-              </ion-item-group>
-              <ion-item-group>
-                <ion-item-divider color="primary">
-                  <ion-icon slot="start" name="checkmark-circle"></ion-icon>
-                  <ion-label>Objetivos</ion-label>
-                </ion-item-divider>
-                <ion-item>
-                  <ion-label>Consumir Api de <a href="https://www.themoviedb.org" target="_blank"
-                      rel="noopener noreferrer">The Movie DB</a>.</ion-label>
-                </ion-item>
-                <ion-item>
-                  <ion-label>Mostrar Informacion de manera amigable al usuario.</ion-label>
-                </ion-item>
-              </ion-item-group>
-            </ion-list>
-          </ion-card-content>
         </ion-card>
       </ion-col>
     </ion-row>

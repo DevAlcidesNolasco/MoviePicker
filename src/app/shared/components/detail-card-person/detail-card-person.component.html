@@ -42,6 +42,18 @@
           <ion-card-title>{{ details.known_for_department }}</ion-card-title>
         </ion-card-header>
       </ion-card>
+      <ion-card>
+        <ion-item color="medium" lines="none">
+          <ion-icon name="pulse-outline" slot="start"></ion-icon>
+          <ion-label>Popularidad</ion-label>
+        </ion-item>
+        <ion-card-header>
+          <ion-card-title>{{ details.popularity | number }}</ion-card-title>
+          <ion-progress-bar
+            [color]="getPopularityProgressBar(details.popularity | number) < 0.33 ? 'danger' : getPopularityProgressBar(details.popularity | number) < 0.66 ? 'warning' : 'success'"
+            [value]="getPopularityProgressBar(details.popularity | number)"></ion-progress-bar>
+        </ion-card-header>
+      </ion-card>
     </ion-col>
     <ion-col size="12" size-md="6">
       <ion-card>
@@ -69,7 +81,8 @@
           <ion-card-title>Participaciones</ion-card-title>
         </ion-card-header>
         <ion-card-content class="ion-no-padding">
-          <ion-slides [options]="{ autoHeigth: true, slidesPerView: 1.5, centeredSlides: true, freeMode: true }" scrollbar="true">
+          <ion-slides [options]="{ autoHeigth: true, slidesPerView: 1.5, centeredSlides: true, freeMode: true }"
+            scrollbar="true">
             <ion-slide *ngFor="let cast of credits.cast">
               <ion-card>
                 <ion-img *ngIf="cast.poster_path || cast.backdrop_path"
@@ -78,9 +91,9 @@
                   <ion-card-title>{{ cast.title }}</ion-card-title>
                 </ion-card-header>
                 <ion-card-content>
-                  <ion-item lines="inset">
+                  <ion-item lines="none">
+                    <ion-icon slot="start" name="person"></ion-icon>
                     <ion-label>{{ cast.character }}</ion-label>
-                    <ion-note slot="start">Personaje</ion-note>
                   </ion-item>
                   <ion-button color="primary" expand="block">
                     Ver

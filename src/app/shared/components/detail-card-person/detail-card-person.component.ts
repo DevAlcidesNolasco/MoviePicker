@@ -99,6 +99,8 @@ export class DetailCardPersonComponent implements OnInit {
     return this.http.get(`https://api.themoviedb.org/3/person/${this.details.id}/combined_credits?api_key=cbd664e9c8bc0f3e9eeb7a0e27fd7583&language=es-SV`);
   }
 
+  public getPopularityProgressBar = (number: string): number => parseInt(number) / 100;
+
 
 
 }
