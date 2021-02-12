@@ -1,18 +1,23 @@
 <ion-card>
-  <ion-img [src]="'https://image.tmdb.org/t/p/w400' + (data.backdrop_path || data.profile_path)"></ion-img>
+  <ion-img *ngIf="!(data.backdrop_path || data.profile_path)" src="../../assets/image/no_image_avaliable.png"></ion-img>
+  <ion-img *ngIf="(data.backdrop_path || data.profile_path)"
+    [src]="'https://image.tmdb.org/t/p/w400' + (data.backdrop_path || data.profile_path)"></ion-img>
   <ion-card-header color="tertiary">
-    <ion-avatar slot="start">
-      <img [src]="'https://image.tmdb.org/t/p/w200' + (data.profile_path || data.poster_path)">
-    </ion-avatar>
-    <ion-progress-bar
-      [color]="data.vote_average < 3 || data.popularity < 1000 ? 'danger' : data.vote_average < 5 || data.popularity < 5000 ? 'warning' : data.vote_average < 8 || data.popularity < 50000 ? 'success' : 'primary'"
-      [value]="data.vote_average / 10 || data.popularity / 100"></ion-progress-bar>
-    <ion-card-title [title]="data.title || data.name">{{ data.title || data.name }}</ion-card-title>
+    <ion-item class="ion-no-padding" lines="none" color="tertiary">
+      <ion-avatar *ngIf="data.profile_path || data.poster_path" slot="start"
+        style="--border-radius: 5px; height: 100%;">
+        <img [src]="'https://image.tmdb.org/t/p/w200' + (data.profile_path || data.poster_path)">
+      </ion-avatar>
+      <ion-card-title [title]="data.title || data.name">{{ data.title || data.name }}
+      </ion-card-title>
+    </ion-item>
+    <ion-progress-bar [color]="getProgressColor(type ,(data.vote_average) || (data.popularity))"
+      [value]="getProgressValue(type ,(data.vote_average) || (data.popularity))"></ion-progress-bar>
     <ion-card-subtitle>{{ (data.release_date | date) || (data.popularity | number) }}</ion-card-subtitle>
   </ion-card-header>
   <ion-card-content>
     <p class="description" *ngIf="data.overview">{{ data.overview }}</p>
-    <ion-button expand="block" color="tertiary" (click)="getDetails(data.id)">
+    <ion-button expand="block" color="medium" (click)="getDetails(data.id)">
       <ion-icon slot="start" name="reader-outline"></ion-icon>
       Detalles
     </ion-button>

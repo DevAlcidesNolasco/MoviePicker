@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { IImage } from 'src/app/interfaces/iimage';
 import { IPerson } from 'src/app/interfaces/iperson';
@@ -81,7 +82,8 @@ export class DetailCardPersonComponent implements OnInit {
 
   constructor(
     private theMovieDbService: ThemoviedbService,
-    private http: HttpClient
+    private http: HttpClient,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -100,6 +102,11 @@ export class DetailCardPersonComponent implements OnInit {
   }
 
   public getPopularityProgressBar = (number: string): number => parseInt(number) / 100;
+
+  public goToMedia = (type: string, id: number) => {
+    const base: string = (type === "tv") ? 'series' : (type === "movie") ? 'movies' : 'actors';
+    this.router.navigateByUrl(`/${base}/details/${id}`);
+  }
 
 
 

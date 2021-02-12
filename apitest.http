@@ -46,3 +46,6 @@ GET https://api.themoviedb.org/3/movie/464052/images?api_key=cbd664e9c8bc0f3e9ee
 
 ###
 GET https://api.themoviedb.org/3/tv/85271/images?api_key=cbd664e9c8bc0f3e9eeb7a0e27fd7583&language=en-US HTTP/1.1
+
+###
+GET https://api.themoviedb.org/3/person/1397778/combined_credits?api_key=cbd664e9c8bc0f3e9eeb7a0e27fd7583&language=es-SV HTTP/1.1

@@ -18,7 +18,7 @@
           <ion-card-subtitle>Nombre</ion-card-subtitle>
           <ion-card-title>{{ details.name }}</ion-card-title>
         </ion-card-header>
-        <ion-card-content>
+        <ion-card-content *ngIf="details.biography">
           {{ details.biography }}
         </ion-card-content>
       </ion-card>
@@ -55,8 +55,8 @@
         </ion-card-header>
       </ion-card>
     </ion-col>
-    <ion-col size="12" size-md="6">
-      <ion-card>
+    <ion-col size="12" size-md="6" *ngIf="details.place_of_birth || details.birthday">
+      <ion-card *ngIf="details.place_of_birth">
         <ion-item color="medium">
           <ion-icon name="location" slot="start"></ion-icon>
           <ion-label>Lugar de Nacimiento</ion-label>
@@ -65,7 +65,7 @@
           <ion-card-title>{{ details.place_of_birth }}</ion-card-title>
         </ion-card-header>
       </ion-card>
-      <ion-card>
+      <ion-card *ngIf="details.birthday">
         <ion-item color="medium">
           <ion-icon name="calendar" slot="start"></ion-icon>
           <ion-label>Fecha de Nacimiento</ion-label>
@@ -75,7 +75,7 @@
         </ion-card-header>
       </ion-card>
     </ion-col>
-    <ion-col size="12" size-md="6" offset-md="3" *ngrxLet="credits$ as credits">
+    <ion-col size="12" size-md="6" offset-md="auto" *ngrxLet="credits$ as credits">
       <ion-card>
         <ion-card-header color="medium">
           <ion-card-title>Participaciones</ion-card-title>
@@ -88,6 +88,7 @@
                 <ion-img *ngIf="cast.poster_path || cast.backdrop_path"
                   [src]="'https://image.tmdb.org/t/p/w500' + (cast.poster_path || cast.backdrop_path)"></ion-img>
                 <ion-card-header>
+                  <ion-card-subtitle>{{ cast.media_type | titlecase }}</ion-card-subtitle>
                   <ion-card-title>{{ cast.title }}</ion-card-title>
                 </ion-card-header>
                 <ion-card-content>
@@ -95,7 +96,7 @@
                     <ion-icon slot="start" name="person"></ion-icon>
                     <ion-label>{{ cast.character }}</ion-label>
                   </ion-item>
-                  <ion-button color="primary" expand="block">
+                  <ion-button color="primary" expand="block" (click)="goToMedia(cast.media_type, cast.id)">
                     Ver
                   </ion-button>
                 </ion-card-content>
