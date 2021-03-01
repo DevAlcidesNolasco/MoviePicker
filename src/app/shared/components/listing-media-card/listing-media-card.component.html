@@ -41,15 +41,15 @@
   <div class="card-stats">
     <div class="stat" *ngIf="data.vote_average">
       <div class="value">{{ data.vote_average | number:undefined:'en' }}</div>
-      <div class="type">Rating</div>
+      <div class="type">Valoración</div>
     </div>
     <div class="stat" *ngIf="data.popularity">
-      <div class="value">{{ data.popularity | number:undefined:'en' }}</div>
+      <div class="value">{{ data.popularity * 1000 | number:undefined:'en' }}</div>
       <div class="type">Popularidad</div>
     </div>
     <div class="stat" *ngIf="data.vote_count">
       <div class="value">{{ data.vote_count | number:undefined:'en' }}</div>
-      <div class="type">Votaron</div>
+      <div class="type">Votos</div>
     </div>
     <div class="stat" *ngIf="data.known_for_department">
       <div class="value">{{ (data.known_for_department == "Acting") ? "Actuar" : (data.known_for_department == "Writing") ? "Escribir" : "Dirigir"}}</div>
