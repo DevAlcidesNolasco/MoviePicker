@@ -26,6 +26,7 @@ ion-footer {
 }
 ion-app {
     ion-split-pane {
+        --border: 400px;
         ion-menu {
             ion-content {
                 overflow-y: auto;

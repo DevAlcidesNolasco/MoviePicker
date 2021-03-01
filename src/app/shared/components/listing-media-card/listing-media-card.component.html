@@ -1,4 +1,4 @@
-<ion-card>
+<!--<ion-card>
   <ion-img *ngIf="!(data.backdrop_path || data.profile_path)" src="../../assets/image/no_image_avaliable.png"></ion-img>
   <ion-img *ngIf="(data.backdrop_path || data.profile_path)"
     [src]="'https://image.tmdb.org/t/p/w400' + (data.backdrop_path || data.profile_path)"></ion-img>
@@ -22,4 +22,38 @@
       Detalles
     </ion-button>
   </ion-card-content>
-</ion-card>
+</ion-card>{{ data | json }}-->
+<div class="card">
+  <div class="card-image" style="background: url('{{ getUrlImage((data.backdrop_path || data.profile_path)) }}');">
+
+  </div>
+  <div class="card-text">
+    <ion-progress-bar color="primary" [color]="getProgressColor(type ,(data.vote_average) || (data.popularity))"
+      [value]="getProgressValue(type ,(data.vote_average) || (data.popularity))"></ion-progress-bar>
+    <span class="date">{{ data.release_date || data.first_air_date | date }}</span>
+    <h2>{{ data.title || data.name }}</h2>
+    <p *ngIf="data.overview">{{ data.overview }}</p>
+    <ion-button (click)="getDetails(data.id)" fill="outline">
+      <ion-icon slot="start" name="eye"></ion-icon>
+      Detalles
+    </ion-button>
+  </div>
+  <div class="card-stats">
+    <div class="stat" *ngIf="data.vote_average">
+      <div class="value">{{ data.vote_average | number:undefined:'en' }}</div>
+      <div class="type">Rating</div>
+    </div>
+    <div class="stat" *ngIf="data.popularity">
+      <div class="value">{{ data.popularity | number:undefined:'en' }}</div>
+      <div class="type">Popularidad</div>
+    </div>
+    <div class="stat" *ngIf="data.vote_count">
+      <div class="value">{{ data.vote_count | number:undefined:'en' }}</div>
+      <div class="type">Votaron</div>
+    </div>
+    <div class="stat" *ngIf="data.known_for_department">
+      <div class="value">{{ (data.known_for_department == "Acting") ? "Actuar" : (data.known_for_department == "Writing") ? "Escribir" : "Dirigir"}}</div>
+      <div class="type">Conocida Por</div>
+    </div>
+  </div>
+</div>

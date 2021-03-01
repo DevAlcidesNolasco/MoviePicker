@@ -10,7 +10,7 @@ import { ITv } from 'src/app/interfaces/itv';
   styleUrls: ['./listing-media-card.component.scss'],
 })
 export class ListingMediaCardComponent implements OnInit {
-  @Input("data") data: ITv | IPerson | IMovie;
+  @Input("data") public data: ITv | IPerson | IMovie;
   @Input("type") type: any;
 
   constructor(
@@ -46,6 +46,8 @@ export class ListingMediaCardComponent implements OnInit {
     });*/
     return value;
   }
+
+  public getUrlImage = (path: string): string => "https://image.tmdb.org/t/p/original" + path;
 
   public getProgressColor = (type: string, number: number): string => {
     //console.log(number);
