@@ -49,3 +49,7 @@ GET https://api.themoviedb.org/3/tv/85271/images?api_key=cbd664e9c8bc0f3e9eeb7a0
 
 ###
 GET https://api.themoviedb.org/3/person/1397778/combined_credits?api_key=cbd664e9c8bc0f3e9eeb7a0e27fd7583&language=es-SV HTTP/1.1
+
+###
+
+GET https://api.themoviedb.org/3/discover/movie?api_key=cbd664e9c8bc0f3e9eeb7a0e27fd7583&language=es-SV&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=28 HTTP/1.1

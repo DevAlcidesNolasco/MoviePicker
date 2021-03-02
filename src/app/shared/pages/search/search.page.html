@@ -1,5 +1,13 @@
 <ion-content *ngrxLet="base$ as base">
-  <ion-card>
+  <ion-segment (ionChange)="segmentChanged($event.detail.value)" [value]="searchBy" color="medium">
+    <ion-segment-button value="name">
+      <ion-label>Nombre</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="genre" [disabled]="base.base === 'person'">
+      <ion-label>Género</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+  <ion-card *ngIf="searchBy === 'name'">
     <ion-card-content>
       <ion-item lines="none">
         <ion-label position="floating">Buscar {{ base.base == 'movie' ? 'Películas' : base.base == 'tv' ? 'Series' :
@@ -10,8 +18,23 @@
       </ion-item>
     </ion-card-content>
   </ion-card>
+  <ion-card *ngIf="searchBy === 'genre'">
+    <ion-card-content *ngrxLet="genres$ as genres">
+      <ion-item>
+        <ion-label>Géneros</ion-label>
+        <ion-select placeholder="Escoge tu género" (ionChange)="searchByGenre($event.detail.value)">
+          <ion-select-option *ngFor="let genre of genres.genres" [value]="genre.id">{{genre.name}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
   <ion-grid fixed *ngIf="searchData$ | async as searchData">
     <ion-row>
+      <ion-col size="12">
+        <app-base-header-card [data]="base" [pages]="{ 'actual': searchData.page, 'total': searchData.total_pages}"
+          [total_results]="searchData.total_results" (changePage)="getChangePage($event)">
+        </app-base-header-card>
+      </ion-col>
       <ion-col size="12" size-md="4" *ngFor="let searchItem of searchData.results">
         <app-listing-media-card [data]="searchItem" [type]="base.base"></app-listing-media-card>
       </ion-col>

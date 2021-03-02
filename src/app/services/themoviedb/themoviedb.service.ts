@@ -31,6 +31,10 @@ export class ThemoviedbService {
     return this.httpClient.get<IGenre[]>(`${this.apiRoute}/genre/${type}/list?api_key=${this.apiKey}&language=${this.language}`);
   }
 
+  public getByGenre = (params: { type: string, id: number, page: number }): Observable<any> => {
+    return this.httpClient.get(`${this.apiRoute}/discover/${params.type}?api_key=${this.apiKey}&language=${this.language}&sort_by=popularity.desc&include_adult=false&include_video=false&page=${params.page}&with_genres=${params.id}`);
+  }
+
   public getImages = (type: string, id: number): Observable<any> => {
     let query: string = `${this.apiRoute}/${type}/${id}/images?api_key=${this.apiKey}&language=${this.language}`;
     if (type === 'movie') query += "&include_image_language=es";

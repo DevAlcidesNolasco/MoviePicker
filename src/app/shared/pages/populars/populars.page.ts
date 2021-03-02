@@ -26,10 +26,9 @@ export class PopularsPage implements OnInit {
     });
   }
 
-  public getChangePage = ({ direction, actual }) => {
-    console.log(direction, actual);
+  public getChangePage = (options: { direction: string, actual: number }) => {
     this.base$.subscribe((data) => {
-      this.popularData$ = this.theMovieDbService.getPopulars(data.base, direction === "forward" ? actual + 1 : actual - 1);
+      this.popularData$ = this.theMovieDbService.getPopulars(data.base, options.direction === "forward" ? options.actual + 1 : options.actual - 1);
     });
   }
 
